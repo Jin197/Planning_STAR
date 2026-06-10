@@ -1,0 +1,26 @@
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# next.js
+/.next/
+/out/
+next-env.d.ts
+
+# production
+/build
+
+# env & secrets
+.env*.local
+.env
+
+# certificats (specifique a ce poste)
+corp-ca.pem
+
+# misc
+.DS_Store
+*.pem
+npm-debug.log*
+.vscode/*
+!.vscode/extensions.json

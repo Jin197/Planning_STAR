@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  * {
+    border-color: theme("colors.line");
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    @apply bg-canvas text-ink font-sans antialiased;
+    font-feature-settings: "ss01", "cv01", "tnum";
+  }
+
+  /* Chiffres tabulaires partout (heures, dates, compteurs) */
+  .tnum {
+    font-variant-numeric: tabular-nums;
+  }
+
+  ::selection {
+    background: theme("colors.accent.soft");
+    color: theme("colors.accent.DEFAULT");
+  }
+
+  /* Scrollbar discrete et premium */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 999px;
+    border: 3px solid transparent;
+    background-clip: padding-box;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.16);
+    background-clip: padding-box;
+  }
+}
+
+@layer components {
+  /* Grain / texture subtile sur le canvas (effet "matiere" premium) */
+  .bg-grain {
+    background-image: radial-gradient(
+        circle at 1px 1px,
+        rgba(255, 255, 255, 0.025) 1px,
+        transparent 0
+      );
+    background-size: 32px 32px;
+  }
+
+  /* Halo radial d'accent (header / hero) */
+  .bg-aura {
+    background:
+      radial-gradient(60% 50% at 50% -10%, rgba(200, 168, 107, 0.12), transparent 70%),
+      theme("colors.canvas");
+  }
+
+  /* Carte en verre */
+  .glass {
+    @apply border border-line bg-surface/70 backdrop-blur-xl;
+  }
+
+  /* Libelle / eyebrow majuscule espace */
+  .eyebrow {
+    @apply text-2xs font-medium uppercase tracking-[0.18em] text-ink-muted;
+  }
+}
